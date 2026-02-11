@@ -236,7 +236,7 @@
             const submit = document.getElementById("submitBtn");
             const box = document.getElementById("container-fluid");
             const fun = document.getElementById("fun");
-            const api = import.meta.env.BACKEND_API;
+            const api = process.env.BACKEND_API;
 
             submit.addEventListener("click", async () => {
                 const inputval = document.getElementById("captchaStr").value;
