@@ -5,10 +5,10 @@ const http = require("http");
 const app = express();
 const server = http.createServer(app);
 const cors = require("cors");
-const { Mangoclient } = require("mangodb");
+const { Mongoclient } = require("mongodb");
 
 const PORT = process.env.PORT;
-const client = new Mangoclient(process.env.DB_URL);
+const client = new Mongoclient(process.env.DB_URL);
 
 async function ConnectDB() {
   try {
