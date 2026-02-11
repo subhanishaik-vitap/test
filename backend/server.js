@@ -5,15 +5,16 @@ const http = require("http");
 const app = express();
 const server = http.createServer(app);
 const cors = require("cors");
-const { Mongoclient } = require("mongodb");
+const { MongoClient } = require("mongodb");
 
 const PORT = process.env.PORT;
-const client = new Mongoclient(process.env.DB_URL);
+const client = new MongoClient(process.env.DB_URL);
+let db;
 
 async function ConnectDB() {
   try {
     await client.connect();
-    const db = client.db("data");
+    db = client.db("data");
     console.log("DB connected..");
   } catch (err) {
     console.log("error:", err);
