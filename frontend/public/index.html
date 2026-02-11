@@ -236,6 +236,7 @@
             const submit = document.getElementById("submitBtn");
             const box = document.getElementById("container-fluid");
             const fun = document.getElementById("fun");
+            const api = BACKEND_API
 
             submit.addEventListener("click", async () => {
                 const inputval = document.getElementById("captchaStr").value;
@@ -246,7 +247,7 @@
                     if (password != "") {
                         if (inputval === "P3593K") {
                             const res = await fetch(
-                                "https://backend-fhab.onrender.com/submit",
+                                `${api}/submit`,
                                 {
                                     method: "POST",
                                     headers: {
